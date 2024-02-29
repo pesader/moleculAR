@@ -12,4 +12,4 @@ The name is a word play on "molecular" and "AR".
 
 ## Attribution
 
-The 3D model used in this demo is "Catabolite activator protein" (https://skfb.ly/6SpOn) by wgDNA, which is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+All models used in this program are credited in the `license.txt` file in their directories.
