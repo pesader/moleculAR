@@ -1,0 +1,11 @@
+Model Information:
+* title:	Catabolite activator protein
+* source:	https://sketchfab.com/3d-models/catabolite-activator-protein-3b07862102cd4ff5b8c704cc848c0eb9
+* author:	wgDNA (https://sketchfab.com/wgurley)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Catabolite activator protein" (https://sketchfab.com/3d-models/catabolite-activator-protein-3b07862102cd4ff5b8c704cc848c0eb9) by wgDNA (https://sketchfab.com/wgurley) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
