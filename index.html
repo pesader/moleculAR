@@ -6,7 +6,7 @@
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
     <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    
+
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
@@ -14,10 +14,59 @@
         <a-assets>
             <a-asset-item id="dna-protein-complex-leucine-zipper" src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/dna-protein-complex-leucine-zipper/scene.gltf"></a-asset-item>
         </a-assets>
-
         <a-marker id="dna-protein-complex-leucine-zipper" type='barcode' value='1'>
             <a-entity
                 gltf-model="#dna-protein-complex-leucine-zipper"
+                scale="1.5">
+            </a-entity>
+        </a-marker>
+
+        <a-assets>
+            <a-asset-item id="m33-tcr-p3m33lh-2-ld-complex-4nhu" src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/m33-tcr-p3m33lh-2-ld-complex-4nhu/scene.gltf"></a-asset-item>
+        </a-assets>
+        <a-marker id="m33-tcr-p3m33lh-2-ld-complex-4nhu" type='barcode' value='2'>
+            <a-entity
+                gltf-model="#m33-tcr-p3m33lh-2-ld-complex-4nhu"
+                scale="1.5">
+            </a-entity>
+        </a-marker>
+
+        <a-assets>
+            <a-asset-item id="protein-molecular-dynamics" src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/protein-molecular-dynamics/scene.gltf"></a-asset-item>
+        </a-assets>
+        <a-marker id="protein-molecular-dynamics" type='barcode' value='3'>
+            <a-entity
+                gltf-model="#protein-molecular-dynamics"
+                scale="1.5">
+            </a-entity>
+        </a-marker>
+
+        <a-assets>
+            <a-asset-item id="protein-structure-pdb-id-1ivo" src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/protein-structure-pdb-id-1ivo/scene.gltf"></a-asset-item>
+        </a-assets>
+        <a-marker id="protein-structure-pdb-id-1ivo" type='barcode' value='4'>
+            <a-entity
+                gltf-model="#protein-structure-pdb-id-1ivo"
+                scale="1.5">
+            </a-entity>
+        </a-marker>
+
+        <a-assets>
+            <a-asset-item id="protein-structure-pdb-id-1nfn1" src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/protein-structure-pdb-id-1ivo/scene.gltf"></a-asset-item>
+        </a-assets>
+        <a-marker id="protein-structure-pdb-id-1nfn1" type='barcode' value='5'>
+            <a-entity
+                gltf-model="#protein-structure-pdb-id-1nfn1"
+                scale="1.5">
+            </a-entity>
+        </a-marker>
+
+        <a-assets>
+            <a-asset-item id="protein-structure-pdb-id-5f1a" src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/protein-structure-pdb-id-1ivo/scene.gltf"></a-asset-item>
+        </a-assets>
+        <a-marker id="protein-structure-pdb-id-5f1a" type='barcode' value='6'>
+            <a-entity
+                gltf-model="#protein-structure-pdb-id-5f1a"
                 scale="1.5">
             </a-entity>
         </a-marker>
