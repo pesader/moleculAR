@@ -14,6 +14,7 @@
             <a-asset-item id="m33-tcr-p3m33lh-2-ld-complex-4nhu" src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/m33-tcr-p3m33lh-2-ld-complex-4nhu/scene.gltf"></a-asset-item>
             <a-asset-item id="protein-molecular-dynamics" src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/protein-molecular-dynamics/scene.gltf"></a-asset-item>
             <a-asset-item id="protein-structure-pdb-id-1nfn1" src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/protein-structure-pdb-id-1nfn1/scene.gltf"></a-asset-item>
+            <a-asset-item id="lysozyme-ligand" src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/lysozyme-ligand/scene.glb"></a-asset-item>
         </a-assets>
 
         <a-marker id="dna-protein-complex-leucine-zipper-marker" type='barcode' value='1'>
@@ -43,6 +44,14 @@
         <a-marker id="protein-structure-pdb-id-1nfn1-marker" type='barcode' value='4'>
             <a-entity
                 gltf-model="#protein-structure-pdb-id-1nfn1"
+                position="0 1.0 0"
+                scale="0.03 0.03 0.03">
+            </a-entity>
+        </a-marker>
+
+        <a-marker id="lysozyme-ligand" type='barcode' value='5'>
+            <a-entity
+                gltf-model="#lyzozyme-ligang"
                 position="0 1.0 0"
                 scale="0.03 0.03 0.03">
             </a-entity>
