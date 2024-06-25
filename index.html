@@ -6,23 +6,27 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/dev/aframe/build/aframe-ar.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.4.0/dist/aframe-extras.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/meshoptimizer/meshopt_decoder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/examples/js/libs/draco/draco_decoder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/examples/js/libs/draco/draco_decoder.wasm"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/examples/js/libs/draco/draco_wasm_wrapper.js"></script>
     <script>
-      AFRAME.registerComponent('gltf-model-meshopt', {
-        schema: { type: 'asset' },
-  
-        init: function () {
-          var loader = new THREE.GLTFLoader();
-          loader.setMeshoptDecoder(MeshoptDecoder);
-          loader.load(this.data, (gltf) => {
-            this.el.setObject3D('mesh', gltf.scene);
-          });
-        },
-  
-        remove: function () {
-          this.el.removeObject3D('mesh');
-        }
-      });
+    AFRAME.registerComponent('gltf-model-draco', {
+      schema: { type: 'asset' },
+
+      init: function () {
+        var loader = new THREE.GLTFLoader();
+        var dracoLoader = new THREE.DRACOLoader();
+        dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.137.5/examples/js/libs/draco/');
+        loader.setDRACOLoader(dracoLoader);
+        loader.load(this.data, (gltf) => {
+          this.el.setObject3D('mesh', gltf.scene);
+        });
+      },
+
+      remove: function () {
+        this.el.removeObject3D('mesh');
+      }
+    });
     </script>
 </head>
 
@@ -33,12 +37,12 @@
 
         <a-assets timeout="300000">
             <a-asset-item id="lysozyme-ligand"
-                src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/lysozyme-ligand/scene.glb">
+                src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/lysozyme-ligand/scene-draco.glb">
             </a-asset-item>
         </a-assets>
 
         <a-marker id="lysozyme-ligand" type='barcode' value='5'>
-            <a-entity gltf-model-meshopt="#lysozyme-ligand" position="0 1.5 0.0" scale="6.0 6.0 6.0" animation-mixer>
+            <a-entity gltf-model-draco="#lysozyme-ligand" position="0 1.5 0.0" scale="6.0 6.0 6.0" animation-mixer>
             </a-entity>
         </a-marker>
 
