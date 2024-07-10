@@ -8,25 +8,7 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/examples/js/libs/draco/draco_decoder.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/examples/js/libs/draco/draco_wasm_wrapper.js"></script>
-    <script>
-    AFRAME.registerComponent('gltf-model-draco', {
-      schema: { type: 'asset' },
-
-      init: function () {
-        var loader = new THREE.GLTFLoader();
-        var dracoLoader = new THREE.DRACOLoader();
-        dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.137.5/examples/js/libs/draco/');
-        loader.setDRACOLoader(dracoLoader);
-        loader.load(this.data, (gltf) => {
-          this.el.setObject3D('mesh', gltf.scene);
-        });
-      },
-
-      remove: function () {
-        this.el.removeObject3D('mesh');
-      }
-    });
-    </script>
+    <script src="gltf-model-draco.js"></script>
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
