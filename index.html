@@ -1,59 +1,56 @@
-
 <!DOCTYPE html>
 <html>
-  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-  <!-- we import arjs version without NFT but with marker + location based support -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.4.0/dist/aframe-extras.min.js"></script>
-  <script src="./tracked-ui.js"></script>
-  <script>
-    AFRAME.registerComponent("ui-logic", {
-        init: function() {
-            const btn = document.querySelector("#dockingicon")
-            const lysozyme = document.getElementById("lysozyme")
+  <head>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.4.0/dist/aframe-extras.min.js"></script>
+    <script src="./tracked-ui.js"></script>
+    <script src="./script.js"></script>
+  </head>
+  <body style="margin: 0px; overflow: hidden;">
+    <!-- UI -->
+    <div id="UI" style="position: fixed; z-index: 1000; display: none;">
+      <div style="margin-left: -48px;">
+        <p>
+          <img
+            id="dockingicon"
+            src="assets/images/docking.png"
+            width="110px"
+            style="opacity: 1; transition: opacity 1s ease-in-out;"
+          />
+        </p>
+      </div>
+    </div>
 
-            lysozyme.addEventListener('animation-finished', function (event) {
-                console.log('Animation finished!', event);
-            });
-
-            // handle image clicking
-            btn.addEventListener("click", e => {
-                lysozyme.setAttribute("animation-mixer", "clip: *; loop: once; clampWhenFinished: true;")
-                btn.style.opacity = 0
-            })
-        }
-    })
-
-    // just to make the models brighter
-    AFRAME.registerComponent("linear-encoding", {
-        init: function() {
-            this.el.addEventListener("model-loaded", e => {
-                const mesh = this.el.getObject3D("mesh");
-                mesh.traverse(node => {
-                    if (!node.material || !node.material.map) return;
-                    node.material.map.encoding = THREE.LinearEncoding
-                })
-            })
-        }
-    })
-</script>
-    <body style="margin : 0px; overflow: hidden;">
-        <!-- UI -->
-        <div id="UI" style="position: fixed; z-index: 1000; display: none;">
-            <div style="margin-left: -48px;">
-                <p><img id="dockingicon" src="assets/images/docking.png" width="110px" style="opacity: 1; transition: opacity 1s ease-in-out;"></p>
-            </div>
-        </div>
-
-        <!-- SCENE -->
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;' renderer="logarithmicDepthBuffer: true" vr-mode-ui="enabled: false">
-          <a-assets>
-            <a-asset-item id="lysozyme-model" src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/lysozyme-ligand/scene.glb"></a-asset-item>
-        </a-assets>
-        <a-marker smooth="true" type="barcode" value="1" tracked-ui="element: #UI; offset: 0 -3000 0" ui-logic>
-            <a-entity id="lysozyme" scale="6 6 6" position="0.0 1.5 0.0" gltf-model="#lysozyme-model" linear-encoding></a-entity>
-        </a-marker>
-        <a-entity camera></a-entity>
-        </a-scene>
-    </body>
+    <!-- SCENE -->
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+      renderer="logarithmicDepthBuffer: true"
+      vr-mode-ui="enabled: false"
+    >
+      <a-assets>
+        <a-asset-item
+          id="lysozyme-model"
+          src="https://raw.githubusercontent.com/pesader/moleculAR/main/assets/models/lysozyme-ligand/scene.glb"
+        ></a-asset-item>
+      </a-assets>
+      <a-marker
+        smooth="true"
+        type="barcode"
+        value="1"
+        tracked-ui="element: #UI; offset: 0 -3000 0"
+        ui-logic
+      >
+        <a-entity
+          id="lysozyme"
+          scale="6 6 6"
+          position="0.0 1.5 0.0"
+          gltf-model="#lysozyme-model"
+          linear-encoding
+        ></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
