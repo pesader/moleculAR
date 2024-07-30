@@ -5,6 +5,7 @@ AFRAME.registerComponent("ui-logic", {
 
     lysozyme.addEventListener("animation-finished", function(event) {
       console.log("Animation finished!", event);
+      document.getElementById('reset-button').classList.remove('hidden');
     });
 
     // handle image clicking
@@ -27,3 +28,13 @@ AFRAME.registerComponent("linear-encoding", {
     });
   }
 });
+
+function handleClick(){
+  const btn = document.querySelector("#dockingicon");
+  const lysozyme = document.getElementById("lysozyme");
+  const mixer = lysozyme.components['animation-mixer'].mixer
+  mixer.stopAllAction();
+  lysozyme.removeAttribute("animation-mixer");
+  document.getElementById('reset-button').classList.add('hidden');
+  btn.style.opacity = 1;
+}
