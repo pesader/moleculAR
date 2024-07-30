@@ -9,7 +9,7 @@ AFRAME.registerComponent("ui-logic", {
 
     // handle image clicking
     btn.addEventListener("click", e => {
-      lysozyme.setAttribute("animation-mixer", "clip: *; loop: once; clampWhenFinished: true;");
+      lysozyme.setAttribute("animation-mixer", "clip: *; loop: once; clampWhenFinished: true; startAt: 0;");
       btn.style.opacity = 0;
     });
   }
