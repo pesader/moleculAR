@@ -14,16 +14,3 @@ AFRAME.registerComponent("ui-logic", {
     });
   }
 });
-
-// just to make the models brighter
-AFRAME.registerComponent("linear-encoding", {
-  init: function() {
-    this.el.addEventListener("model-loaded", e => {
-      const mesh = this.el.getObject3D("mesh");
-      mesh.traverse(node => {
-        if (!node.material || !node.material.map) return;
-        node.material.map.encoding = THREE.LinearEncoding;
-      });
-    });
-  }
-});
