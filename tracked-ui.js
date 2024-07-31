@@ -45,6 +45,6 @@ AFRAME.registerComponent("tracked-ui", {
 
 	// adjust image size
 	let image = document.getElementById('dockingicon');
-	image.style.width = (1650 / distance) + 'px';
+	image.style.width = (200 / distance) + 'vh';
 	}
 })
