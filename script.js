@@ -1,9 +1,9 @@
 AFRAME.registerComponent("ui-logic", {
-  init: function() {
+  init: function () {
     const btn = document.querySelector("#dockingicon");
     const lysozyme = document.getElementById("lysozyme");
 
-    lysozyme.addEventListener("animation-finished", function(event) {
+    lysozyme.addEventListener("animation-finished", function (event) {
       console.log("Animation finished!", event);
       document.getElementById('reset-button').classList.remove('hidden');
     });
@@ -18,7 +18,7 @@ AFRAME.registerComponent("ui-logic", {
 
 // just to make the models brighter
 AFRAME.registerComponent("linear-encoding", {
-  init: function() {
+  init: function () {
     this.el.addEventListener("model-loaded", e => {
       const mesh = this.el.getObject3D("mesh");
       mesh.traverse(node => {
@@ -29,7 +29,7 @@ AFRAME.registerComponent("linear-encoding", {
   }
 });
 
-function handleClick(){
+function handleClick() {
   const btn = document.querySelector("#dockingicon");
   const lysozyme = document.getElementById("lysozyme");
   const mixer = lysozyme.components['animation-mixer'].mixer
