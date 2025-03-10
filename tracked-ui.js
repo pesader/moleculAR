@@ -20,7 +20,7 @@ AFRAME.registerComponent("tracked-ui", {
     // show the UI only if the marker is visible
     if (this.data.autoShow) {
       if (this.el.object3D.visible &&
-        (this.el.object3D.rotation._y >= -1.40 && this.el.object3D.rotation._y <= -0.05 && this.el.object3D.rotation._x >= 0.00 && this.el.object3D.rotation._x <= 1.30)
+        (this.el.object3D.rotation._x >= -2.70 && this.el.object3D.rotation._x <= 1.30 && this.el.object3D.rotation._y >= -1.50 && this.el.object3D.rotation._y <= 0.40)
       ) {
         this.element.style.display = "block"
       } else {
