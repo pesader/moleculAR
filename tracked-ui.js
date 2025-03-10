@@ -15,8 +15,6 @@ AFRAME.registerComponent("tracked-ui", {
   tick: function () {
     if (!this.element) return;
 
-    console.log(this.el.object3D.rotation._x, this.el.object3D.rotation._y)
-
     // show the UI only if the marker is visible
     if (this.data.autoShow) {
       if (this.el.object3D.visible &&
