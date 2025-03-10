@@ -1,16 +1,29 @@
 AFRAME.registerComponent("ui-logic", {
   init: function () {
-    const btn = document.querySelector("#dockingicon");
-    const lysozyme = document.getElementById("lysozyme");
+    this.animating = false;
 
-    lysozyme.addEventListener("animation-finished", function (event) {
-      console.log("Animation finished!", event);
+    const btn = document.getElementById("dockingicon");
+    this.lysozyme = document.getElementById("lysozyme");
+    this.marker = document.getElementById("marker");
+
+    this.lysozyme.addEventListener("animation-finished", (_event) => {
+      this.animating = false;
       document.getElementById('reset-button').classList.remove('hidden');
     });
 
-    // handle image clicking
-    btn.addEventListener("click", e => {
-      lysozyme.setAttribute("animation-mixer", "clip: *; loop: once; clampWhenFinished: true;");
+    this.marker.addEventListener('markerLost', () => {
+      if (this.animating)
+        this.lysozyme.setAttribute('animation-mixer', {timeScale: 0});
+    });
+
+    this.marker.addEventListener('markerFound', () => {
+      if (this.animating)
+        this.lysozyme.setAttribute('animation-mixer', {timeScale: 1});
+    });
+
+    btn.addEventListener("click", () => {
+      this.animating = true;
+      this.lysozyme.setAttribute("animation-mixer", {clip: "*", loop: "once", clampWhenFinished: true, timeScale: 1});
       btn.style.opacity = 0;
     });
   }
